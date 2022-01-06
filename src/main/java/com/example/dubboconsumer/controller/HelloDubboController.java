@@ -1,6 +1,7 @@
 package com.example.dubboconsumer.controller;
 
 import com.example.dubboprovider.service.HelloDubboService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,7 @@ public class HelloDubboController {
 //    @Reference(filter = {"helloConsumer", "helloConsumer2"}, listener = {"helloConsumerListener"}, parameters = {"key1", "value1"}, mock = "com.example.dubboconsumer.mock.HelloServiceMock", stub = "com.example.dubboconsumer.stub.HelloDubboServiceStub", onconnect = "onconnect")
 //    @Reference(check = false,filter = {"helloConsumer","helloConsumer2"},listener = {"helloConsumerListener"},parameters = {"key1","value1"},mock = "com.example.dubboconsumer.mock.HelloServiceMock",onconnect = "onconnect")
 //    @Reference(onconnect = "onconnect",mock = "com.example.dubboconsumer.mock.HelloServiceMock")
-    @Reference(async = true)
+    @DubboReference
     private HelloDubboService helloDubboService;
 
     public void onconnect(){

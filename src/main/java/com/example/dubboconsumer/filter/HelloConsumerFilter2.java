@@ -1,6 +1,5 @@
 package com.example.dubboconsumer.filter;
 
-import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.rpc.*;
 
 /**
@@ -14,11 +13,5 @@ public class HelloConsumerFilter2 implements Filter {
     public Result invoke(Invoker<?> invoker, Invocation inv) throws RpcException {
         System.out.println(">>>>>>>>>>>HelloConsumerFilter2:invoke");
         return invoker.invoke(inv);
-    }
-
-    @Override
-    public Result onResponse(Result result, Invoker<?> invoker, Invocation invocation) {
-        System.out.println(">>>>>>>>>>>>HelloConsumerFilter2:onResponse");
-        return result;
     }
 }
